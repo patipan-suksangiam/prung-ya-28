@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เภสัชกรรมไทย: ศาสตร์การชั่งตวงวัด & วิธีปรุงยา 28 ขนาน</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Charm:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Sarabun', 'sans-serif'],
+            thaiTrad: ['Charm', 'cursive'],
+          },
+          colors: {
+            herbal: {
+              50: '#fbf8f2',
+              100: '#f5efe0',
+              200: '#ebdcc0',
+              300: '#ddc199',
+              400: '#cba271',
+              500: '#b8864d',
+              600: '#9b6c3d',
+              700: '#7d5333',
+              800: '#64432c',
+              900: '#4a3222',
+            },
+            sage: {
+              50: '#f3f6f4',
+              100: '#e3ece6',
+              500: '#4b755e',
+              600: '#3c604c',
+              700: '#2f4b3c',
+              800: '#23372c',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom scrollbar and subtle pattern */
+    body {
+      background-color: #faf7f2;
+      background-image: radial-gradient(#d6c7b2 0.75px, transparent 0.75px);
+      background-size: 20px 20px;
+    }
+    .tin-ka-grid {
+      position: relative;
+    }
+    .tin-ka-line-h {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background-color: #64432c;
+      transform: translateY(-50%);
+    }
+    .tin-ka-line-v {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background-color: #64432c;
+      transform: translateX(-50%);
+    }
+  </style>
+</head>
+<body class="text-stone-800 antialiased min-h-screen flex flex-col selection:bg-herbal-200">
+
+  <header class="sticky top-0 z-40 bg-stone-900/95 backdrop-blur border-b border-amber-900/40 text-amber-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo / Title -->
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-600 to-herbal-700 flex items-center justify-center text-white shadow-inner font-thaiTrad text-2xl font-bold">
+            เภ
+          </div>
+          <div>
+            <div class="text-sm font-semibold tracking-wide text-amber-400 uppercase">เภสัชกรรมไทย • บทที่ ๕</div>
+            <h1 class="text-lg sm:text-xl font-bold font-thaiTrad text-white leading-tight">
+              มาตราชั่งตวงวัด & ศาสตร์การปรุงยาไทย
+            </h1>
+          </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <nav class="hidden md:flex items-center gap-1 text-sm font-medium">
+          <button onclick="switchTab('tinka')" id="nav-tinka" class="nav-btn px-3 py-2 rounded-lg transition-all flex items-center gap-1.5 bg-amber-800/60 text-amber-200 border border-amber-600/40">
+            <i data-lucide="cross" class="w-4 h-4"></i> เครื่องหมายตีนกา & แปลงหน่วย
+          </button>
+          <button onclick="switchTab('liquid')" id="nav-liquid" class="nav-btn px-3 py-2 rounded-lg transition-all flex items-center gap-1.5 text-stone-300 hover:text-white hover:bg-stone-800">
+            <i data-lucide="droplet" class="w-4 h-4"></i> ตวงของเหลว & ธรรมชาติ
+          </button>
+          <button onclick="switchTab('methods')" id="nav-methods" class="nav-btn px-3 py-2 rounded-lg transition-all flex items-center gap-1.5 text-stone-300 hover:text-white hover:bg-stone-800">
+            <i data-lucide="book-open" class="w-4 h-4"></i> วิธีปรุงยา 28 วิธี
+          </button>
+          <button onclick="switchTab('theory')" id="nav-theory" class="nav-btn px-3 py-2 rounded-lg transition-all flex items-center gap-1.5 text-stone-300 hover:text-white hover:bg-stone-800">
+            <i data-lucide="layers" class="w-4 h-4"></i> โครงสร้างตำรับยา
+          </button>
+          <button onclick="switchTab('quiz')" id="nav-quiz" class="nav-btn px-3 py-2 rounded-lg transition-all flex items-center gap-1.5 text-stone-300 hover:text-white hover:bg-stone-800">
+            <i data-lucide="help-circle" class="w-4 h-4"></i> ควิซฝึกอ่านตีนกา
+          </button>
+        </nav>
+
+        <div class="flex items-center gap-2">
+          <span class="text-xs bg-amber-900/40 border border-amber-700/50 text-amber-200 px-3 py-1.5 rounded-full flex items-center gap-1.5">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
+            <span>หลักสูตรเภสัชกรรมไทย</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Mobile Tab Bar -->
+      <div class="flex md:hidden overflow-x-auto py-2 gap-2 border-t border-stone-800 text-xs scrollbar-none">
+        <button onclick="switchTab('tinka')" id="nav-m-tinka" class="px-3 py-1.5 rounded whitespace-nowrap bg-amber-800 text-amber-100">ตีนกา & ชั่งยา</button>
+        <button onclick="switchTab('liquid')" id="nav-m-liquid" class="px-3 py-1.5 rounded whitespace-nowrap text-stone-300 hover:bg-stone-800">ตวงของเหลว</button>
+        <button onclick="switchTab('methods')" id="nav-m-methods" class="px-3 py-1.5 rounded whitespace-nowrap text-stone-300 hover:bg-stone-800">ปรุงยา 28 วิธี</button>
+        <button onclick="switchTab('theory')" id="nav-m-theory" class="px-3 py-1.5 rounded whitespace-nowrap text-stone-300 hover:bg-stone-800">โครงสร้างยา</button>
+        <button onclick="switchTab('quiz')" id="nav-m-quiz" class="px-3 py-1.5 rounded whitespace-nowrap text-stone-300 hover:bg-stone-800">ทดสอบความรู้</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Notification Toast -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
+
+    <!-- TAB 1: ตีนกา & แปลงหน่วยชั่งยาไทย (Primary Focus) -->
+    <section id="tab-tinka" class="tab-content space-y-8">
+      
+      <!-- Hero Banner -->
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-stone-900 via-herbal-900 to-amber-950 text-white p-6 sm:p-8 shadow-xl border border-amber-800/30">
+        <div class="relative z-10 max-w-3xl space-y-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+            <i data-lucide="scale" class="w-3.5 h-3.5"></i> บทที่ ๕ เภสัชกรรมไทย: การชั่งตัวยา
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold font-thaiTrad tracking-wide text-amber-100">
+            เครื่องหมายตีนกา และ มาตราชั่งยาไทยเทียบสากล
+          </h2>
+          <p class="text-sm sm:text-base text-stone-300 leading-relaxed font-light">
+            ในใบสั่งยาโบราณ หมอยาจะบันทึกน้ำหนักตัวยาด้วย <strong class="text-amber-300 font-normal">“เครื่องหมายตีนกา (┼)”</strong> วางไว้ท้ายชื่อตัวยา โดยระบุตำแหน่ง <span class="text-amber-200">ชั่ง ตำลึง บาท สลึง เฟื้อง ไพ</span> สามารถทดลองใส่ค่าเพื่อคำนวณน้ำหนักเป็นระบบเมตริก (กรัม/มิลลิกรัม) หรือแปลงกลับจากหน่วยปัจจุบันได้ทันที
+          </p>
+        </div>
+      </div>
+
+      <!-- Main Interactive Grid: Tin Ka Visualizer + Quick Converters -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left: Tin Ka Interactive Pad (7 cols) -->
+        <div class="lg:col-span-7 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-stone-200 space-y-6">
+          <div class="flex items-center justify-between border-b border-stone-100 pb-4">
+            <div>
+              <h3 class="font-bold text-lg text-stone-900 flex items-center gap-2">
+                <i data-lucide="layout-grid" class="w-5 h-5 text-herbal-600"></i>
+                แท่นสร้างเครื่องหมายตีนกาจำลอง (┼)
+              </h3>
+              <p class="text-xs text-stone-500">กรอกตัวเลขในแต่ละตำแหน่ง หรือกดเลือกตัวอย่างตำรับโบราณ</p>
+            </div>
+            <button onclick="resetTinKa()" class="text-xs text-stone-500 hover:text-stone-800 flex items-center gap-1 bg-stone-100 hover:bg-stone-200 px-3 py-1.5 rounded-md transition">
+              <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> ล้างค่า
+            </button>
+          </div>
+
+          <div class="relative bg-herbal-50/70 p-6 sm:p-8 rounded-2xl border border-herbal-200 shadow-inner flex flex-col items-center justify-center">
+            
+            <!-- Quick Presets -->
+            <div class="w-full mb-6 flex flex-wrap items-center justify-center gap-2 text-xs">
+              <span class="text-stone-500 font-medium">ตัวอย่างเทียบเคียง:</span>
+              <button onclick="setTinKaPreset(0,0,1,0,0,0)" class="px-2.5 py-1 bg-white hover:bg-herbal-100 border border-herbal-300 rounded-lg transition">ยาต้ม (๑ บาท)</button>
+              <button onclick="setTinKaPreset(0,0,0,1,0,0)" class="px-2.5 py-1 bg-white hover:bg-herbal-100 border border-herbal-300 rounded-lg transition">ยาผง (๑ สลึง)</button>
+              <button onclick="setTinKaPreset(0,0,0,0,1,0)" class="px-2.5 py-1 bg-white hover:bg-herbal-100 border border-herbal-300 rounded-lg transition">ยาดอง (๑ เฟื้อง)</button>
+              <button onclick="setTinKaPreset(1,2,3,5,4,6)" class="px-2.5 py-1 bg-amber-100 hover:bg-amber-200 border border-amber-300 text-amber-900 rounded-lg font-medium transition">ตัวอย่างตำรา (๑ชั่ง ๒ตำลึง ๓บาท...)</button>
+            </div>
+
+            <!-- The Cross Canvas Structure -->
+            <div class="relative w-72 sm:w-80 h-72 sm:h-80 flex items-center justify-center my-2">
+              <!-- Horizontal & Vertical Lines -->
+              <div class="tin-ka-line-h"></div>
+              <div class="tin-ka-line-v"></div>
+
+              <!-- Top Slot: ชั่ง (Chang) -->
+              <div class="absolute top-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
+                <span class="text-[11px] font-semibold text-herbal-800 mb-1">ชั่ง (๘๐ บาท)</span>
+                <input type="number" min="0" id="tk-chang" value="0" oninput="calculateFromTinKa()" 
+                  class="w-16 h-10 text-center font-bold text-lg bg-white border-2 border-stone-400 focus:border-herbal-600 rounded-lg shadow-sm focus:outline-none transition">
+              </div>
+
+              <!-- Top-Left Slot: ตำลึง (Tam-lueng) -->
+              <div class="absolute top-10 sm:top-12 left-4 sm:left-6 flex flex-col items-center">
+                <span class="text-[11px] font-semibold text-herbal-800 mb-1">ตำลึง (๔ บาท)</span>
+                <input type="number" min="0" id="tk-tamlueng" value="0" oninput="calculateFromTinKa()" 
+                  class="w-16 h-10 text-center font-bold text-lg bg-white border-2 border-stone-400 focus:border-herbal-600 rounded-lg shadow-sm focus:outline-none transition">
+              </div>
+
+              <!-- Top-Right Slot: บาท (Baht) -->
+              <div class="absolute top-10 sm:top-12 right-4 sm:right-6 flex flex-col items-center">
+                <span class="text-[11px] font-semibold text-herbal-800 mb-1">บาท (๑๕ กรัม)</span>
+                <input type="number" min="0" id="tk-baht" value="1" oninput="calculateFromTinKa()" 
+                  class="w-16 h-10 text-center font-bold text-lg bg-white border-2 border-stone-400 focus:border-herbal-600 rounded-lg shadow-sm focus:outline-none transition">
+              </div>
+
+              <!-- Bottom-Left Slot: เฟื้อง (Fueang) -->
+              <div class="absolute bottom-10 sm:bottom-12 left-4 sm:left-6 flex flex-col items-center">
+                <span class="text-[11px] font-semibold text-herbal-800 mb-1">เฟื้อง (๑/๒ สลึง)</span>
+                <input type="number" min="0" id="tk-fueang" value="0" oninput="calculateFromTinKa()" 
+                  class="w-16 h-10 text-center font-bold text-lg bg-white border-2 border-stone-400 focus:border-herbal-600 rounded-lg shadow-sm focus:outline-none transition">
+              </div>
+
+              <!-- Bottom-Right Slot: สลึง (Salueng) -->
+              <div class="absolute bottom-10 sm:bottom-12 right-4 sm:right-6 flex flex-col items-center">
+                <span class="text-[11px] font-semibold text-herbal-800 mb-1">สลึง (๑/๔ บาท)</span>
+                <input type="number" min="0" id="tk-salueng" value="0" oninput="calculateFromTinKa()" 
+                  class="w-16 h-10 text-center font-bold text-lg bg-white border-2 border-stone-400 focus:border-herbal-600 rounded-lg shadow-sm focus:outline-none transition">
+              </div>
+
+              <!-- Bottom Slot: ไพ (Phai) -->
+              <div class="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
+                <input type="number" min="0" id="tk-phai" value="0" oninput="calculateFromTinKa()" 
+                  class="w-16 h-10 text-center font-bold text-lg bg-white border-2 border-stone-400 focus:border-herbal-600 rounded-lg shadow-sm focus:outline-none transition">
+                <span class="text-[11px] font-semibold text-herbal-800 mt-1">ไพ (๑/๔ เฟื้อง)</span>
+              </div>
+            </div>
+
+            <!-- Traditional Text Reading Presentation -->
+            <div class="w-full mt-4 bg-white p-4 rounded-xl border border-stone-200 text-center space-y-1">
+              <span class="text-xs text-stone-500 uppercase tracking-wider">คำอ่านตามมาตราแพทย์แผนไทยโบราณ</span>
+              <p id="tk-text-reading" class="text-base sm:text-lg font-bold font-thaiTrad text-herbal-900">
+                หนัก ๑ บาท
+              </p>
+            </div>
+          </div>
+
+          <!-- Total Calculation Results Display -->
+          <div class="bg-gradient-to-br from-amber-50 to-stone-50 border border-amber-200 rounded-xl p-5 space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-stone-600 uppercase tracking-wider">ผลการแปลงน้ำหนักเป็นหน่วยสากล (เมตริก)</span>
+              <button onclick="copyToClipboard(document.getElementById('tk-gram-val').innerText + ' กรัม')" 
+                      class="text-xs text-stone-500 hover:text-amber-800 flex items-center gap-1">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i> คัดลอกค่า
+              </button>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div class="bg-white p-3 rounded-lg border border-amber-100 shadow-sm text-center">
+                <div class="text-xs text-stone-500">กรัม (g)</div>
+                <div id="tk-gram-val" class="text-xl sm:text-2xl font-bold text-herbal-700">15.00</div>
+              </div>
+              <div class="bg-white p-3 rounded-lg border border-amber-100 shadow-sm text-center">
+                <div class="text-xs text-stone-500">มิลลิกรัม (mg)</div>
+                <div id="tk-mg-val" class="text-xl sm:text-2xl font-bold text-stone-800">15,000</div>
+              </div>
+              <div class="bg-white p-3 rounded-lg border border-amber-100 shadow-sm text-center">
+                <div class="text-xs text-stone-500">กิโลกรัม (kg)</div>
+                <div id="tk-kg-val" class="text-xl sm:text-2xl font-bold text-stone-800">0.0150</div>
+              </div>
+              <div class="bg-white p-3 rounded-lg border border-amber-100 shadow-sm text-center">
+                <div class="text-xs text-stone-500">รวมเป็นหน่วยบาท</div>
+                <div id="tk-total-baht" class="text-xl sm:text-2xl font-bold text-amber-700">1.00</div>
+              </div>
+            </div>
+
+            <!-- Mathematical Breakdown Details -->
+            <div class="text-xs text-stone-600 bg-white/70 p-3 rounded-lg border border-stone-200 flex items-start gap-2">
+              <i data-lucide="info" class="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5"></i>
+              <div id="tk-math-breakdown" class="leading-relaxed">
+                การคำนวณ: 1 บาท × 15 กรัม = 15 กรัม
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Universal Bi-directional Converter (5 cols) -->
+        <div class="lg:col-span-5 space-y-6">
+
+          <!-- Direct Unit Converter Card -->
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-stone-200 space-y-5">
+            <div class="border-b border-stone-100 pb-3">
+              <h3 class="font-bold text-stone-900 text-lg flex items-center gap-2">
+                <i data-lucide="calculator" class="w-5 h-5 text-amber-600"></i>
+                เครื่องคำนวณแปลงหน่วยเร็ว (2-Way)
+              </h3>
+              <p class="text-xs text-stone-500">พิมพ์ค่าน้ำหนักในหน่วยใดก็ได้ แล้วระบบจะแปลงให้ทุกหน่วยทันที</p>
+            </div>
+
+            <div class="space-y-4">
+              <div>
+                <label class="block text-xs font-semibold text-stone-700 mb-1">เลือกหน่วยตั้งต้นและใส่ตัวเลข</label>
+                <div class="flex gap-2">
+                  <input type="number" step="any" min="0" id="conv-input-val" value="15" oninput="runUniversalConversion()"
+                         class="flex-1 px-3 py-2 border border-stone-300 rounded-lg text-lg font-bold text-stone-900 focus:outline-none focus:ring-2 focus:ring-herbal-500">
+                  <select id="conv-input-unit" onchange="runUniversalConversion()"
+                          class="w-36 px-3 py-2 border border-stone-300 rounded-lg text-sm bg-stone-50 font-medium text-stone-800 focus:outline-none focus:ring-2 focus:ring-herbal-500">
+                    <option value="gram">กรัม (g)</option>
+                    <option value="baht" selected>บาท (ไทย)</option>
+                    <option value="salueng">สลึง</option>
+                    <option value="fueang">เฟื้อง</option>
+                    <option value="phai">ไพ</option>
+                    <option value="tamlueng">ตำลึง</option>
+                    <option value="chang">ชั่ง</option>
+                    <option value="harp">หาบ</option>
+                    <option value="hoon">หุน</option>
+                    <option value="at">อัฐ</option>
+                    <option value="solos">โสฬส</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Converted Output Table -->
+              <div class="border border-stone-100 rounded-xl overflow-hidden shadow-inner divide-y divide-stone-100 text-sm">
+                <div class="p-2.5 bg-stone-50 flex items-center justify-between text-xs font-semibold text-stone-500">
+                  <span>มาตราหน่วย</span>
+                  <span>ผลลัพธ์ที่คำนวณได้</span>
+                </div>
+                <div class="p-2.5 flex items-center justify-between hover:bg-stone-50">
+                  <span class="text-stone-600">เมตริก: กรัม (g)</span>
+                  <span id="res-gram" class="font-bold text-stone-900">15.000 g</span>
+                </div>
+                <div class="p-2.5 flex items-center justify-between hover:bg-stone-50">
+                  <span class="text-stone-600">หาบ (60 กก.)</span>
+                  <span id="res-harp" class="font-medium text-stone-700">0.00025 หาบ</span>
+                </div>
+                <div class="p-2.5 flex items-center justify-between hover:bg-stone-50">
+                  <span class="text-stone-600">ชั่ง (1,200 กรัม / 80 บาท)</span>
+                  <span id="res-chang" class="font-medium text-stone-700">0.0125 ชั่ง</span>
+                </div>
+                <div class="p-2.5 flex items-center justify-between hover:bg-stone-50">
+                  <span class="text-stone-600">ตำลึง (60 กรัม / 4 บาท)</span>
+                  <span id="res-tamlueng" class="font-medium text-stone-700">0.25 ตำลึง</span>
+                </div>
+                <div class="p-2.5 flex items-center justify-between bg-amber-50/50">
+                  <span class="font-semibold text-herbal-900">บาท (15 กรัม)</span>
+                  <span id="res-baht" class="font-bold text-herbal-800">1.000 บาท</span>
+                </div>
+                <div class="p-2.5 flex items-center justify-between hover:bg-stone-50">
+                  <span class="text-stone-600">สลึง (3.75 กรัม)</span>
+                  <span id="res-salueng" class="font-medium text-stone-700">4.000 สลึง</span>
+                </div>
+                <div class="p-2.5 flex items-center justify-between hover:bg-stone-50">
+                  <span class="text-stone-600">เฟื้อง (1.875 กรัม)</span>
+                  <span id="res-fueang" class="font-medium text-stone-700">8.000 เฟื้อง</span>
+                </div>
+                <div class="p-2.5 flex items-center justify-between hover:bg-stone-50">
+                  <span class="text-stone-600">ไพ (0.46875 กรัม)</span>
+                  <span id="res-phai" class="font-medium text-stone-700">32.000 ไพ</span>
+                </div>
+                <div class="p-2.5 flex items-center justify-between hover:bg-stone-50">
+                  <span class="text-stone-600">อัฐ (0.234375 กรัม)</span>
+                  <span id="res-at" class="font-medium text-stone-700">64.000 อัฐ</span>
+                </div>
+                <div class="p-2.5 flex items-center justify-between hover:bg-stone-50">
+                  <span class="text-stone-600">โสฬส (0.1171875 กรัม)</span>
+                  <span id="res-solos" class="font-medium text-stone-700">128.000 โสฬส</span>
+                </div>
+                <div class="p-2.5 flex items-center justify-between hover:bg-stone-50">
+                  <span class="text-stone-600">หุน (0.375 กรัม)</span>
+                  <span id="res-hoon" class="font-medium text-stone-700">40.000 หุน</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-stone-200 space-y-3">
+            <h4 class="font-bold text-sm text-stone-900 flex items-center gap-1.5">
+              <i data-lucide="bookmark" class="w-4 h-4 text-herbal-600"></i>
+              สูตรท่องจำมาตราชั่งยาไทยโบราณ
+            </h4>
+            <div class="grid grid-cols-2 gap-2 text-xs text-stone-700">
+              <div class="p-2 bg-stone-50 rounded border border-stone-100">๔ ไพ = <strong>๑ เฟื้อง</strong></div>
+              <div class="p-2 bg-stone-50 rounded border border-stone-100">๒ เฟื้อง = <strong>๑ สลึง</strong></div>
+              <div class="p-2 bg-stone-50 rounded border border-stone-100">๔ สลึง = <strong>๑ บาท</strong></div>
+              <div class="p-2 bg-stone-50 rounded border border-stone-100">๔ บาท = <strong>๑ ตำลึง</strong></div>
+              <div class="p-2 bg-stone-50 rounded border border-stone-100">๒๐ ตำลึง = <strong>๑ ชั่ง</strong> (๘๐ บาท)</div>
+              <div class="p-2 bg-stone-50 rounded border border-stone-100">๕๐ ชั่ง = <strong>๑ หาบ</strong> (๖๐ กก.)</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="tab-liquid" class="tab-content hidden space-y-8">
+      
+      <div class="bg-gradient-to-r from-sage-800 to-sage-600 text-white rounded-2xl p-6 sm:p-8 shadow-xl">
+        <div class="max-w-3xl space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/20 text-emerald-100">
+            <i data-lucide="droplet" class="w-3.5 h-3.5"></i> บทที่ ๕: มาตราวัดและตวงของเหลว
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold font-thaiTrad text-white">
+            การตวงของเหลว & มาตราวัดธรรมชาติโบราณ
+          </h2>
+          <p class="text-emerald-100 text-sm sm:text-base leading-relaxed">
+            การปรุงยาไทยมีทั้งการตวงของเหลว (เช่น น้ำกระสายยา เหล้า น้ำผึ้ง น้ำด่าง) และการประมาณด้วยอวัยวะธรรมชาติ เช่น หยิบมือ กำมือ ฟายมือ ทะนาน และ องคุลี
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Liquid Converter -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-stone-200 space-y-5">
+          <div class="border-b border-stone-100 pb-3">
+            <h3 class="font-bold text-stone-900 text-lg flex items-center gap-2">
+              <i data-lucide="flask-conical" class="w-5 h-5 text-emerald-600"></i>
+              คำนวณตวงของเหลว (ซี.ซี. / มิลลิลิตร)
+            </h3>
+            <p class="text-xs text-stone-500">เลือกภาชนะตวงเพื่อดูปริมาตรเทียบเท่า ซี.ซี. หรือ หยด</p>
+          </div>
+
+          <div class="space-y-4">
+            <div>
+              <label class="block text-xs font-semibold text-stone-700 mb-1">ใส่จำนวนภาชนะที่ต้องการตวง</label>
+              <div class="flex gap-2">
+                <input type="number" min="0" step="any" id="liquid-val" value="1" oninput="calcLiquid()" 
+                       class="flex-1 px-3 py-2 border border-stone-300 rounded-lg text-lg font-bold text-stone-900 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                <select id="liquid-unit" onchange="calcLiquid()"
+                        class="w-48 px-3 py-2 border border-stone-300 rounded-lg text-sm bg-stone-50 font-medium text-stone-800">
+                  <option value="thanan">ทะนาน (๑ ลิตร / ๑,๐๐๐ ซี.ซี.)</option>
+                  <option value="half-thanan">ครึ่งทะนาน (๕๐๐ ซี.ซี.)</option>
+                  <option value="teacup">ถ้วยชา (๓๐ ซี.ซี.)</option>
+                  <option value="soup-spoon">ช้อนคาว / ช้อนโต๊ะ (๑๕ ซี.ซี.)</option>
+                  <option value="sweet-spoon">ช้อนหวาน (๘ ซี.ซี.)</option>
+                  <option value="coffee-spoon">ช้อนกาแฟ (๔ ซี.ซี.)</option>
+                  <option value="cc">ซี.ซี. / มิลลิลิตร (cc/ml)</option>
+                  <option value="drop">หยด (๑๕ หยด = ๑ ซี.ซี.)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Liquid Results Box -->
+            <div class="bg-emerald-50/70 border border-emerald-200 rounded-xl p-4 space-y-3">
+              <div class="text-xs font-bold text-emerald-800 uppercase tracking-wider">ผลลัพธ์ปริมาตร</div>
+              <div class="grid grid-cols-2 gap-3">
+                <div class="bg-white p-3 rounded-lg border border-emerald-100 shadow-sm text-center">
+                  <div class="text-xs text-stone-500">ซี.ซี. (ลูกบาศก์เซนติเมตร / ml)</div>
+                  <div id="res-cc" class="text-2xl font-bold text-emerald-700">1,000</div>
+                </div>
+                <div class="bg-white p-3 rounded-lg border border-emerald-100 shadow-sm text-center">
+                  <div class="text-xs text-stone-500">จำนวนหยด (Drops)</div>
+                  <div id="res-drops" class="text-2xl font-bold text-stone-800">15,000</div>
+                </div>
+              </div>
+              <div id="res-liquid-desc" class="text-xs text-stone-600 bg-white p-2.5 rounded border border-emerald-100">
+                ๑ ทะนาน จุเท่ากับ ๑ ลิตร หรือ ๑,๐๐๐ ซี.ซี. หรือประมาณ ๑ กิโลกรัม (น้ำบริสุทธิ์)
+              </div>
+            </div>
+          </div>
+
+          <!-- Spoon & Cup Reference Graphic Cards -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs text-stone-700 pt-2">
+            <div class="p-2.5 bg-stone-50 rounded-lg border border-stone-200 text-center">
+              <div class="font-bold text-emerald-800">ช้อนกาแฟ</div>
+              <div class="text-stone-500">๔ ซี.ซี. (๖๐ หยด)</div>
+            </div>
+            <div class="p-2.5 bg-stone-50 rounded-lg border border-stone-200 text-center">
+              <div class="font-bold text-emerald-800">ช้อนหวาน</div>
+              <div class="text-stone-500">๘ ซี.ซี. (๑๒๐ หยด)</div>
+            </div>
+            <div class="p-2.5 bg-stone-50 rounded-lg border border-stone-200 text-center">
+              <div class="font-bold text-emerald-800">ช้อนคาว</div>
+              <div class="text-stone-500">๑๕ ซี.ซี. (๒๒๕ หยด)</div>
+            </div>
+            <div class="p-2.5 bg-stone-50 rounded-lg border border-stone-200 text-center">
+              <div class="font-bold text-emerald-800">ถ้วยชา</div>
+              <div class="text-stone-500">๓๐ ซี.ซี. (๒ ช้อนคาว)</div>
+            </div>
+            <div class="p-2.5 bg-stone-50 rounded-lg border border-stone-200 text-center">
+              <div class="font-bold text-emerald-800">ครึ่งทะนาน</div>
+              <div class="text-stone-500">๕๐๐ ซี.ซี. (ครึ่งลิตร)</div>
+            </div>
+            <div class="p-2.5 bg-stone-50 rounded-lg border border-stone-200 text-center">
+              <div class="font-bold text-emerald-800">๑ ทะนาน</div>
+              <div class="text-stone-500">๑,๐๐๐ ซี.ซี. (๑ ลิตร)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Natural Measures: Handfuls & Grains -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-stone-200 space-y-5">
+          <div class="border-b border-stone-100 pb-3">
+            <h3 class="font-bold text-stone-900 text-lg flex items-center gap-2">
+              <i data-lucide="hand" class="w-5 h-5 text-amber-600"></i>
+              มาตราวัดธรรมชาติ: ข้าวเปลือก • หยิบมือ • กอบมือ
+            </h3>
+            <p class="text-xs text-stone-500">การประมาณสัดส่วนตัวยาตามคัมภีร์ดั้งเดิม</p>
+          </div>
+
+          <div class="space-y-3 text-sm text-stone-700 leading-relaxed">
+            <div class="p-3 bg-amber-50/60 rounded-xl border border-amber-200/70">
+              <h4 class="font-bold text-herbal-900 mb-2 flex items-center gap-1.5">
+                <i data-lucide="sparkles" class="w-4 h-4 text-amber-600"></i> ลำดับมาตราวัดด้วยมือ:
+              </h4>
+              <ul class="space-y-1.5 text-xs sm:text-sm pl-2">
+                <li>• <strong>๑๕๐ เมล็ดข้าวเปลือก</strong> = ๑ หยิบมือ</li>
+                <li>• <strong>๔ หยิบมือ</strong> = ๑ กำมือ</li>
+                <li>• <strong>๔ กำมือ</strong> = ๑ ฟายมือ</li>
+                <li>• <strong>๒ ฟายมือ</strong> = ๑ กอบมือ</li>
+                <li>• <strong>๓ กอบมือ</strong> = ๑ ทะนาน</li>
+                <li>• <strong>๒๐ ทะนาน</strong> = ๑ สัด | <strong>๔๐ สัด</strong> = ๑ บัน | <strong>๒ บัน</strong> = ๑ เกวียน</li>
+              </ul>
+            </div>
+
+            <div class="p-3 bg-stone-50 rounded-xl border border-stone-200">
+              <h4 class="font-bold text-stone-900 mb-2 flex items-center gap-1.5">
+                <i data-lucide="ruler" class="w-4 h-4 text-herbal-700"></i> มาตราวัดความยาวแบบโบราณ:
+              </h4>
+              <ul class="space-y-1.5 text-xs sm:text-sm pl-2 text-stone-600">
+                <li>• <strong>คำว่า องคุลี</strong> = หนึ่งข้อของนิ้วกลาง</li>
+                <li>• <strong>๒ เมล็ดงา</strong> = ๑ เมล็ดข้าวเปลือก</li>
+                <li>• <strong>๔ เมล็ดข้าวเปลือก</strong> = ๑ องคุลี (วัดตามยาว)</li>
+                <li>• <strong>๑๕ องคุลี</strong> = ๑ ชันฉาย</li>
+                <li>• <strong>เมล็ดมะกล่ำ</strong>: ๒ กล่อม = ๑ กล่ำ (ครึ่งไพ), ๒ กล่ำ = ๑ ไพ</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="tab-methods" class="tab-content hidden space-y-6">
+      
+      <!-- Banner -->
+      <div class="bg-gradient-to-r from-herbal-900 to-stone-900 text-white rounded-2xl p-6 sm:p-8 shadow-xl border border-amber-900/40 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="space-y-2 max-w-2xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+            <i data-lucide="book-marked" class="w-3.5 h-3.5"></i> บทที่ ๕: เภสัชกรรมแผนโบราณ
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold font-thaiTrad text-amber-100">
+            การปรุงยาตามแบบแผนโบราณ ๒๘ วิธี
+          </h2>
+          <p class="text-stone-300 text-sm leading-relaxed">
+            แต่เดิมมี ๒๔ วิธี และต่อมาได้เพิ่มขึ้นอีก ๔ วิธีสมัยใหม่ (ตอกเม็ด, เคลือบ, แคปซูลแผนโบราณ, และยากวนขี้ผึ้ง) แบ่งออกเป็น ๔ หมวดรูปทรงหลัก
+          </p>
+        </div>
+
+        <!-- Category Counts -->
+        <div class="flex flex-wrap gap-2 text-xs">
+          <span class="px-3 py-1.5 rounded-lg bg-blue-900/60 border border-blue-700 text-blue-200">ยาน้ำ ๑๑ วิธี</span>
+          <span class="px-3 py-1.5 rounded-lg bg-amber-900/60 border border-amber-700 text-amber-200">ยาผง ๗ วิธี</span>
+          <span class="px-3 py-1.5 rounded-lg bg-emerald-900/60 border border-emerald-700 text-emerald-200">ยาเม็ด ๖ วิธี</span>
+          <span class="px-3 py-1.5 rounded-lg bg-purple-900/60 border border-purple-700 text-purple-200">ยาดม เป่า อบ สูบ ๔ วิธี</span>
+        </div>
+      </div>
+
+      <!-- Search & Filters -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 bg-white p-4 rounded-xl border border-stone-200 shadow-sm">
+        <div class="relative w-full sm:w-80">
+          <i data-lucide="search" class="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+          <input type="text" id="method-search" oninput="filterMethods()" placeholder="ค้นหาวิธีปรุงยา เช่น ยาต้ม, ดอง, พอก..."
+                 class="w-full pl-9 pr-3 py-2 border border-stone-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-herbal-500">
+        </div>
+
+        <div class="flex flex-wrap items-center gap-1.5 w-full sm:w-auto text-xs">
+          <button onclick="setMethodCategory('all')" id="cat-btn-all" class="method-cat-btn px-3 py-1.5 rounded-lg bg-stone-900 text-white font-medium">ทั้งหมด (28)</button>
+          <button onclick="setMethodCategory('liquid')" id="cat-btn-liquid" class="method-cat-btn px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200">ยาน้ำ (11)</button>
+          <button onclick="setMethodCategory('powder')" id="cat-btn-powder" class="method-cat-btn px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200">ยาผง (7)</button>
+          <button onclick="setMethodCategory('pill')" id="cat-btn-pill" class="method-cat-btn px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200">ยาเม็ด (6)</button>
+          <button onclick="setMethodCategory('inhalation')" id="cat-btn-inhalation" class="method-cat-btn px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200">ดม เป่า อบ สูบ (4)</button>
+        </div>
+      </div>
+
+      <!-- Methods Grid Container -->
+      <div id="methods-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Injected via JavaScript -->
+      </div>
+
+    </section>
+
+    <section id="tab-theory" class="tab-content hidden space-y-8">
+      
+      <!-- Top banner -->
+      <div class="bg-stone-900 text-white rounded-2xl p-6 sm:p-8 shadow-xl border border-stone-800">
+        <div class="max-w-3xl space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> บทที่ ๕: จรรยาและหลักการปรุงยา
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold font-thaiTrad text-amber-100">
+            โครงสร้างตำรับยาไทย & ๕ ขั้นตอนการปรุงยา
+          </h2>
+          <p class="text-stone-300 text-sm sm:text-base leading-relaxed">
+            ยาไทยมักปรุงจากพืช สัตว์ และแร่ธาตุตามธรรมชาติที่มีกากเจือปนมาก ยาตัวเดียวมักไม่มีสรรพคุณแรงพอ จึงต้องใช้ตัวยาหลายสิ่งผสานรวมกันอย่างมีระบบ
+          </p>
+        </div>
+      </div>
+
+      <!-- 4 Core Parts of Thai Herbal Formula -->
+      <div class="space-y-4">
+        <h3 class="text-xl font-bold text-stone-900 font-thaiTrad flex items-center gap-2">
+          <i data-lucide="package-check" class="w-5 h-5 text-herbal-700"></i>
+          โครงสร้างยาไทย ๔ ส่วนประกอบหลัก
+        </h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          
+          <div class="bg-white p-5 rounded-2xl border-t-4 border-t-rose-500 border border-stone-200 shadow-sm space-y-2">
+            <div class="w-8 h-8 rounded-lg bg-rose-100 text-rose-700 flex items-center justify-center font-bold text-sm">๑</div>
+            <h4 class="font-bold text-stone-900 text-base">ตัวยาตรง</h4>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              ทำหน้าที่<strong>บำบัดโรคหรือไข้โดยตรง</strong> มักมีรสแรง เช่น ขม เค็ม หรือเปรี้ยวจัด ทานยาก และเมื่อร่างกายมีโรคแทรก จึงต้องอาศัยตัวยาอื่นช่วยเสริม
+            </p>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border-t-4 border-t-blue-500 border border-stone-200 shadow-sm space-y-2">
+            <div class="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-sm">๒</div>
+            <h4 class="font-bold text-stone-900 text-base">ตัวยาช่วย</h4>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              รักษา<strong>โรคแทรก โรคตาม</strong> หรือเมื่อมีหลายโรครวมกัน เช่น ยารักษาอาการไอ จะมีตัวยากัดเสมหะช่วยเสริมการรักษาให้เห็นผลเร็วขึ้น
+            </p>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border-t-4 border-t-amber-500 border border-stone-200 shadow-sm space-y-2">
+            <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-sm">๓</div>
+            <h4 class="font-bold text-stone-900 text-base">ตัวยาประกอบ</h4>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              ช่วยป้องกันโรคตาม ช่วยบำรุง หรือ<strong>คุมฤทธิ์ยาอื่น</strong> ไม่ให้เกิดผลข้างเคียง เช่น การใส่ลูกผักชีล้อมเพื่อแก้การไซ้ท้องหรือระคายเคืองกระเพาะ
+            </p>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border-t-4 border-t-emerald-500 border border-stone-200 shadow-sm space-y-2">
+            <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">๔</div>
+            <h4 class="font-bold text-stone-900 text-base">ตัวยาชูกลิ่น ชูรส แต่งสี</h4>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              ช่วยให้ยา<strong>รับประทานง่าย น่ากิน</strong> เช่น ชะเอมเทศ (ชูหวาน), น้ำผึ้ง, พิมเสน การบูร หรือเกสรดอกไม้ทั้งห้า ให้กลิ่นหอมสดชื่น
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 5 Steps of Preparation -->
+      <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-stone-200 space-y-6">
+        <h3 class="text-xl font-bold text-stone-900 font-thaiTrad flex items-center gap-2">
+          <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600"></i>
+          ๕ ขั้นตอนการปรุงยา เพื่อให้ยามีสรรพคุณดีเลิศ
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-4 text-xs sm:text-sm">
+          <div class="p-4 rounded-xl bg-stone-50 border border-stone-200 space-y-2">
+            <span class="font-bold text-herbal-800 text-base block">ขั้นที่ ๑: พิจารณาตัวยา</span>
+            <p class="text-stone-600 leading-relaxed">
+              ยึดหลักเภสัชวัตถุ เลือกใช้ส่วนที่ถูกต้อง (ราก ต้น ใบ ผล) ตัวยาใดต้องสะตุ (ลดพิษ) หรือฆ่าฤทธิ์ต้องทำก่อนอย่างเคร่งครัด
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-stone-50 border border-stone-200 space-y-2">
+            <span class="font-bold text-herbal-800 text-base block">ขั้นที่ ๒: พิจารณาสรรพคุณ</span>
+            <p class="text-stone-600 leading-relaxed">
+              รู้จักรสยา ไม่ใช้ตัวยาที่รสขัดกัน หรือตัวยาที่ฆ่าสรรพคุณกันเอง (เช่น รางแดง กับ รางจืด) ใส่ในปริมาณที่พอดี
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-stone-50 border border-stone-200 space-y-2">
+            <span class="font-bold text-herbal-800 text-base block">ขั้นที่ ๓: ชั่งตวงขนาดตัวยา</span>
+            <p class="text-stone-600 leading-relaxed">
+              ต้องแม่นยำในมาตรา ยาต้ม (๑ บาท), ยาผง (๑ สลึง), ยาดอง (๑ เฟื้อง) ละเอียดรอบคอบ ไม่เผลอเรอมักง่าย
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-stone-50 border border-stone-200 space-y-2">
+            <span class="font-bold text-herbal-800 text-base block">ขั้นที่ ๔: ความสะอาดบริสุทธิ์</span>
+            <p class="text-stone-600 leading-relaxed">
+              ความสะอาดเป็นสิ่งสำคัญที่สุดของเภสัชกร เครื่องบดยา หม้อต้ม ตะแกรงร่อน ต้องสะอาดปราศจากสิ่งปนเปื้อน
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-stone-50 border border-stone-200 space-y-2">
+            <span class="font-bold text-herbal-800 text-base block">ขั้นที่ ๕: ปรุงถูกวิธี & บันทึก</span>
+            <p class="text-stone-600 leading-relaxed">
+              ปรุงตาม ๒๘ วิธีอย่างถูกต้อง เสร็จแล้วต้องเขียนชื่อยา ขนาดวิธีใช้ สรรพคุณ และวันที่ปรุงให้ชัดเจนเสมอ
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="tab-quiz" class="tab-content hidden space-y-6">
+      
+      <div class="bg-gradient-to-r from-herbal-800 to-amber-900 text-white rounded-2xl p-6 sm:p-8 shadow-xl">
+        <div class="max-w-2xl space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/20 text-amber-200">
+            <i data-lucide="award" class="w-3.5 h-3.5"></i> แบบทดสอบฝึกอ่านเครื่องหมายตีนกา
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold font-thaiTrad text-white">
+            ทดสอบความแม่นยำ: อ่านน้ำหนักยาโบราณ
+          </h2>
+          <p class="text-amber-100 text-sm sm:text-base leading-relaxed">
+            ดูรูปเครื่องหมายตีนกาที่สุ่มขึ้นมา แล้วทายว่าตัวยาชนิดนี้มีน้ำหนักเท่ากับกี่กรัม (หรือกี่บาท สลึง)
+          </p>
+        </div>
+      </div>
+
+      <!-- Quiz Card -->
+      <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-stone-200 max-w-2xl mx-auto space-y-6">
+        
+        <div class="flex items-center justify-between border-b border-stone-100 pb-3">
+          <div class="text-sm font-semibold text-stone-600">ข้อที่ <span id="quiz-q-num">1</span> / 5</div>
+          <div class="text-xs bg-amber-100 text-amber-900 font-bold px-3 py-1 rounded-full">
+            คะแนนสะสม: <span id="quiz-score">0</span>
+          </div>
+        </div>
+
+        <!-- Quiz Tin Ka Display -->
+        <div class="bg-herbal-50 p-6 rounded-2xl border border-herbal-200 flex flex-col items-center">
+          <div class="text-xs font-semibold text-herbal-800 mb-2">จงอ่านค่าน้ำหนักจากเครื่องหมายตีนกานี้:</div>
+          
+          <div class="relative w-56 h-56 flex items-center justify-center my-2">
+            <div class="tin-ka-line-h"></div>
+            <div class="tin-ka-line-v"></div>
+
+            <div id="q-val-chang" class="absolute top-2 left-1/2 -translate-x-1/2 font-bold text-xl text-stone-900">0</div>
+            <div id="q-val-tamlueng" class="absolute top-8 left-6 font-bold text-xl text-stone-900">0</div>
+            <div id="q-val-baht" class="absolute top-8 right-6 font-bold text-xl text-stone-900">1</div>
+            <div id="q-val-fueang" class="absolute bottom-8 left-6 font-bold text-xl text-stone-900">0</div>
+            <div id="q-val-salueng" class="absolute bottom-8 right-6 font-bold text-xl text-stone-900">2</div>
+            <div id="q-val-phai" class="absolute bottom-2 left-1/2 -translate-x-1/2 font-bold text-xl text-stone-900">0</div>
+          </div>
+
+          <div class="text-xs text-stone-500 mt-2">
+            คำใบ้: ชั่ง = บนสุด, ตำลึง = ซ้ายบน, บาท = ขวาบน, เฟื้อง = ซ้ายล่าง, สลึง = ขวาล่าง, ไพ = ล่างสุด
+          </div>
+        </div>
+
+        <!-- Quiz Question & Multiple Choices -->
+        <div class="space-y-3">
+          <label class="block text-sm font-bold text-stone-800 text-center" id="quiz-question-text">
+            น้ำหนักยานี้ตรงกับข้อใด?
+          </label>
+          
+          <div id="quiz-options-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <!-- Dynamically populated choices -->
+          </div>
+        </div>
+
+        <!-- Quiz Feedback Message -->
+        <div id="quiz-feedback" class="hidden p-4 rounded-xl text-sm font-medium"></div>
+
+        <!-- Next / Restart buttons -->
+        <div class="flex items-center justify-end gap-3 pt-2">
+          <button id="quiz-next-btn" onclick="nextQuizQuestion()" class="hidden px-5 py-2.5 bg-herbal-700 hover:bg-herbal-800 text-white rounded-xl font-semibold text-sm transition flex items-center gap-1.5 shadow">
+            ข้อถัดไป <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="mt-auto bg-stone-900 text-stone-400 text-xs py-8 border-t border-stone-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="space-y-1 text-center sm:text-left">
+        <p class="font-medium text-stone-300">
+          สื่อการเรียนรู้แพทย์แผนไทย เภสัชกรรมไทย หมวดที่ ๕ การปรุงยาและการชั่งตวงวัด
+        </p>
+        <p class="text-stone-500">
+          ระบบจำลองเครื่องหมายตีนกาและเครื่องคำนวณมาตราชั่งตวงวัดยาไทยโบราณ
+        </p>
+      </div>
+      <div class="flex items-center gap-4">
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-amber-400 transition flex items-center gap-1">
+          <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i> กลับขึ้นด้านบน
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* Initialize Lucide Icons */
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      initMethods();
+      calculateFromTinKa();
+      runUniversalConversion();
+      initQuiz();
+    });
+
+    /* Tab Switching Logic */
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      const activeTab = document.getElementById(`tab-${tabId}`);
+      if (activeTab) activeTab.classList.remove('hidden');
+
+      // Update Desktop Nav
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.className = 'nav-btn px-3 py-2 rounded-lg transition-all flex items-center gap-1.5 text-stone-300 hover:text-white hover:bg-stone-800';
+      });
+      const activeNav = document.getElementById(`nav-${tabId}`);
+      if (activeNav) {
+        activeNav.className = 'nav-btn px-3 py-2 rounded-lg transition-all flex items-center gap-1.5 bg-amber-800/60 text-amber-200 border border-amber-600/40';
+      }
+
+      // Update Mobile Nav
+      document.querySelectorAll('[id^="nav-m-"]').forEach(btn => {
+        btn.className = 'px-3 py-1.5 rounded whitespace-nowrap text-stone-300 hover:bg-stone-800';
+      });
+      const activeMobileNav = document.getElementById(`nav-m-${tabId}`);
+      if (activeMobileNav) {
+        activeMobileNav.className = 'px-3 py-1.5 rounded whitespace-nowrap bg-amber-800 text-amber-100';
+      }
+
+      lucide.createIcons();
+    }
+
+    /* Toast Notification */
+    function showToast(msg, type = 'info') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = `pointer-events-auto px-4 py-2.5 rounded-xl shadow-lg border text-sm flex items-center gap-2 transition-all duration-300 transform translate-y-2 opacity-0 bg-stone-900 text-white border-amber-600/50`;
+      toast.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 text-amber-400"></i> <span>${msg}</span>`;
+      container.appendChild(toast);
+      lucide.createIcons();
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-2', 'opacity-0');
+      }, 10);
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+
+    /* Clipboard Copy */
+    function copyToClipboard(text) {
+      const el = document.createElement('textarea');
+      el.value = text;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+      showToast(`คัดลอก "${text}" เรียบร้อยแล้ว`);
+    }
+
+    /* ====================================================================
+       1. TIN KA (เครื่องหมายตีนกา) CALCULATOR LOGIC
+       ==================================================================== */
+    // Conversions in terms of Grams (เมตริก):
+    // 1 บาท = 15 g
+    // 1 สลึง = 3.75 g
+    // 1 เฟื้อง = 1.875 g
+    // 1 ไพ = 0.46875 g
+    // 1 ตำลึง = 4 บาท = 60 g
+    // 1 ชั่ง = 20 ตำลึง = 80 บาท = 1,200 g
+    function calculateFromTinKa() {
+      const chang = Math.max(0, parseFloat(document.getElementById('tk-chang').value) || 0);
+      const tamlueng = Math.max(0, parseFloat(document.getElementById('tk-tamlueng').value) || 0);
+      const baht = Math.max(0, parseFloat(document.getElementById('tk-baht').value) || 0);
+      const salueng = Math.max(0, parseFloat(document.getElementById('tk-salueng').value) || 0);
+      const fueang = Math.max(0, parseFloat(document.getElementById('tk-fueang').value) || 0);
+      const phai = Math.max(0, parseFloat(document.getElementById('tk-phai').value) || 0);
+
+      const totalGrams = (chang * 1200) + 
+                         (tamlueng * 60) + 
+                         (baht * 15) + 
+                         (salueng * 3.75) + 
+                         (fueang * 1.875) + 
+                         (phai * 0.46875);
+
+      const totalBaht = totalGrams / 15;
+      const totalMg = totalGrams * 1000;
+      const totalKg = totalGrams / 1000;
+
+      // Update metric displays
+      document.getElementById('tk-gram-val').innerText = totalGrams.toLocaleString('th-TH', { minimumFractionDigits: 2, maximumFractionDigits: 4 });
+      document.getElementById('tk-mg-val').innerText = totalMg.toLocaleString('th-TH', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+      document.getElementById('tk-kg-val').innerText = totalKg.toLocaleString('th-TH', { minimumFractionDigits: 3, maximumFractionDigits: 5 });
+      document.getElementById('tk-total-baht').innerText = totalBaht.toLocaleString('th-TH', { minimumFractionDigits: 2, maximumFractionDigits: 3 });
+
+      // Generate Thai reading text
+      const parts = [];
+      if (chang > 0) parts.push(`${toThaiNum(chang)} ชั่ง`);
+      if (tamlueng > 0) parts.push(`${toThaiNum(tamlueng)} ตำลึง`);
+      if (baht > 0) parts.push(`${toThaiNum(baht)} บาท`);
+      if (salueng > 0) parts.push(`${toThaiNum(salueng)} สลึง`);
+      if (fueang > 0) parts.push(`${toThaiNum(fueang)} เฟื้อง`);
+      if (phai > 0) parts.push(`${toThaiNum(phai)} ไพ`);
+
+      const readingText = parts.length > 0 ? `หนัก ${parts.join(' ')}` : 'หนัก ๐ (ไม่ได้ระบุน้ำหนัก)';
+      document.getElementById('tk-text-reading').innerText = readingText;
+
+      // Math breakdown text
+      const breakdown = [];
+      if (chang > 0) breakdown.push(`ชั่ง (${chang} × 1,200g = ${chang*1200}g)`);
+      if (tamlueng > 0) breakdown.push(`ตำลึง (${tamlueng} × 60g = ${tamlueng*60}g)`);
+      if (baht > 0) breakdown.push(`บาท (${baht} × 15g = ${baht*15}g)`);
+      if (salueng > 0) breakdown.push(`สลึง (${salueng} × 3.75g = ${salueng*3.75}g)`);
+      if (fueang > 0) breakdown.push(`เฟื้อง (${fueang} × 1.875g = ${fueang*1.875}g)`);
+      if (phai > 0) breakdown.push(`ไพ (${phai} × 0.46875g = ${(phai*0.46875).toFixed(4)}g)`);
+
+      document.getElementById('tk-math-breakdown').innerHTML = breakdown.length > 0
+        ? `<strong>การกระจายน้ำหนัก:</strong> ${breakdown.join(' + ')} = <strong>${totalGrams.toFixed(4)} กรัม</strong>`
+        : 'กรุณาระบุตัวเลขในช่องตีนกาเพื่อดูการแปลงค่า';
+    }
+
+    function resetTinKa() {
+      document.getElementById('tk-chang').value = 0;
+      document.getElementById('tk-tamlueng').value = 0;
+      document.getElementById('tk-baht').value = 0;
+      document.getElementById('tk-salueng').value = 0;
+      document.getElementById('tk-fueang').value = 0;
+      document.getElementById('tk-phai').value = 0;
+      calculateFromTinKa();
+    }
+
+    function setTinKaPreset(chang, tamlueng, baht, salueng, fueang, phai) {
+      document.getElementById('tk-chang').value = chang;
+      document.getElementById('tk-tamlueng').value = tamlueng;
+      document.getElementById('tk-baht').value = baht;
+      document.getElementById('tk-salueng').value = salueng;
+      document.getElementById('tk-fueang').value = fueang;
+      document.getElementById('tk-phai').value = phai;
+      calculateFromTinKa();
+      showToast('โหลดสูตรสำเร็จ');
+    }
+
+    function toThaiNum(num) {
+      const thaiDigits = ['๐','๑','๒','๓','๔','๕','๖','๗','๘','๙'];
+      return num.toString().split('').map(char => thaiDigits[char] || char).join('');
+    }
+
+    /* ====================================================================
+       2. UNIVERSAL 2-WAY CONVERTER
+       ==================================================================== */
+    const GRAM_FACTORS = {
+      gram: 1,
+      baht: 15,
+      salueng: 3.75,
+      fueang: 1.875,
+      phai: 0.46875,
+      tamlueng: 60,
+      chang: 1200,
+      harp: 60000,
+      hoon: 0.375,
+      at: 0.234375,
+      solos: 0.1171875
+    };
+
+    function runUniversalConversion() {
+      const inputVal = parseFloat(document.getElementById('conv-input-val').value) || 0;
+      const inputUnit = document.getElementById('conv-input-unit').value;
+      const baseGrams = inputVal * GRAM_FACTORS[inputUnit];
+
+      const formatVal = (val, decimals = 4) => {
+        if (val === 0) return '0';
+        if (val >= 1000) return val.toLocaleString('th-TH', { maximumFractionDigits: 2 });
+        return Number(val.toFixed(decimals)).toString();
+      };
+
+      document.getElementById('res-gram').innerText = `${formatVal(baseGrams, 4)} กรัม`;
+      document.getElementById('res-harp').innerText = `${formatVal(baseGrams / GRAM_FACTORS.harp, 6)} หาบ`;
+      document.getElementById('res-chang').innerText = `${formatVal(baseGrams / GRAM_FACTORS.chang, 5)} ชั่ง`;
+      document.getElementById('res-tamlueng').innerText = `${formatVal(baseGrams / GRAM_FACTORS.tamlueng, 4)} ตำลึง`;
+      document.getElementById('res-baht').innerText = `${formatVal(baseGrams / GRAM_FACTORS.baht, 3)} บาท`;
+      document.getElementById('res-salueng').innerText = `${formatVal(baseGrams / GRAM_FACTORS.salueng, 3)} สลึง`;
+      document.getElementById('res-fueang').innerText = `${formatVal(baseGrams / GRAM_FACTORS.fueang, 3)} เฟื้อง`;
+      document.getElementById('res-phai').innerText = `${formatVal(baseGrams / GRAM_FACTORS.phai, 2)} ไพ`;
+      document.getElementById('res-at').innerText = `${formatVal(baseGrams / GRAM_FACTORS.at, 2)} อัฐ`;
+      document.getElementById('res-solos').innerText = `${formatVal(baseGrams / GRAM_FACTORS.solos, 2)} โสฬส`;
+      document.getElementById('res-hoon').innerText = `${formatVal(baseGrams / GRAM_FACTORS.hoon, 2)} หุน`;
+    }
+
+    /* ====================================================================
+       3. LIQUID & MEASURES CALCULATOR
+       ==================================================================== */
+    const LIQUID_CC_FACTORS = {
+      thanan: 1000,
+      'half-thanan': 500,
+      teacup: 30,
+      'soup-spoon': 15,
+      'sweet-spoon': 8,
+      'coffee-spoon': 4,
+      cc: 1,
+      drop: 1 / 15
+    };
+
+    function calcLiquid() {
+      const val = parseFloat(document.getElementById('liquid-val').value) || 0;
+      const unit = document.getElementById('liquid-unit').value;
+      const totalCC = val * LIQUID_CC_FACTORS[unit];
+      const totalDrops = totalCC * 15;
+
+      document.getElementById('res-cc').innerText = totalCC.toLocaleString('th-TH', { maximumFractionDigits: 2 });
+      document.getElementById('res-drops').innerText = Math.round(totalDrops).toLocaleString('th-TH');
+
+      const descriptions = {
+        thanan: `${val} ทะนาน = ${totalCC} ซี.ซี. (เท่ากับ ${totalCC/1000} ลิตร)`,
+        'half-thanan': `${val} ครึ่งทะนาน = ${totalCC} ซี.ซี.`,
+        teacup: `${val} ถ้วยชา = ${totalCC} ซี.ซี. (เทียบเท่าประมาณ ${(totalCC/15).toFixed(1)} ช้อนคาว)`,
+        'soup-spoon': `${val} ช้อนคาว/ช้อนโต๊ะ = ${totalCC} ซี.ซี. (เทียบเท่า ${totalDrops} หยด)`,
+        'sweet-spoon': `${val} ช้อนหวาน = ${totalCC} ซี.ซี.`,
+        'coffee-spoon': `${val} ช้อนกาแฟ/ช้อนชา = ${totalCC} ซี.ซี.`,
+        cc: `${val} ซี.ซี. = ${totalDrops} หยด`,
+        drop: `${val} หยด = ${totalCC.toFixed(3)} ซี.ซี.`
+      };
+
+      document.getElementById('res-liquid-desc').innerText = descriptions[unit] || '';
+    }
+
+    /* ====================================================================
+       4. 28 METHODS OF TRADITIONAL COMPOUNDING (จากบทที่ 5)
+       ==================================================================== */
+    const thaiMethods = [
+      // ยาน้ำ 11 วิธี
+      { id: 1, cat: 'liquid', catTh: 'ยาน้ำ', title: 'ยาต้ม', desc: 'สับตัวยาเป็นชิ้นหรือท่อน ใส่หม้อต้ม รินน้ำกิน เป็นวิธีที่พบบ่อยที่สุดในการปรุงยาไทย', icon: 'flame' },
+      { id: 2, cat: 'liquid', catTh: 'ยาน้ำ', title: 'ยาดอง (๓-๗ วัน)', desc: 'ดองแช่ด้วยน้ำท่าหรือน้ำสุรา 3-7 วัน แล้วรินเฉพาะน้ำกิน นิยมใช้บำรุงโลหิต', icon: 'timer' },
+      { id: 3, cat: 'liquid', catTh: 'ยาน้ำ', title: 'ยาดองเหล้า (ดองนาน)', desc: 'กัดตัวยาด้วยเหล้าหรือแอลกอฮอล์นาน ใช้หยดลงในน้ำหรือผสมน้ำกิน ช่วยสกัดสารออกฤทธิ์แรง', icon: 'wine' },
+      { id: 4, cat: 'liquid', catTh: 'ยาน้ำ', title: 'ยาน้ำด่าง', desc: 'เผาตัวยาให้เป็นด่าง นำไปแช่น้ำ กรองเอาน้ำใสมากิน มีฤทธิ์เป็นด่างช่วยขับปัสสาวะ', icon: 'droplets' },
+      { id: 5, cat: 'liquid', catTh: 'ยาน้ำ', title: 'ยากลั่น', desc: 'กลั่นเหงื่อหรือไอน้ำจากเครื่องยา เอาหยดน้ำกลั่นมาแช่น้ำรินกิน นิยมทำน้ำกระสายยา', icon: 'disc' },
+      { id: 6, cat: 'liquid', catTh: 'ยาน้ำ', title: 'ยาหุง', desc: 'หุงเคี่ยวตัวยากับน้ำมัน (เช่น น้ำมันงา, มะพร้าว) นำน้ำมันใส่กล่อง ทาหรือเป่าแผลและฐานฝี', icon: 'cooking-pot' },
+      { id: 7, cat: 'liquid', catTh: 'ยาน้ำ', title: 'ยาอม', desc: 'ผสมต้ม รินเอาน้ำใช้อมหรือบ้วนปาก แก้อาการในช่องปากและลำคอ', icon: 'smile' },
+      { id: 8, cat: 'liquid', catTh: 'ยาน้ำ', title: 'ยาอาบ', desc: 'ผสมตัวยาสมุนไพรลงหม้อต้ม เอาน้ำอุ่นมาอาบชำระ บำรุงผิวพรรณ แก้อาการเมื่อยขบ', icon: 'bath' },
+      { id: 9, cat: 'liquid', catTh: 'ยาน้ำ', title: 'ยาแช่', desc: 'ผสมต้ม เอาน้ำแช่อวัยวะ เช่น แช่มือ แช่เท้า หรือลงแช่ทั้งตัว บำบัดเส้นเอ็นและลม', icon: 'waves' },
+      { id: 10, cat: 'liquid', catTh: 'ยาน้ำ', title: 'ยาชะ', desc: 'ผสมต้ม เอาน้ำชะล้างทำความสะอาดบาดแผลสดหรือแผลเรื้อรัง', icon: 'shower-head' },
+      { id: 11, cat: 'liquid', catTh: 'ยาน้ำ', title: 'ยาสวน', desc: 'ผสมต้ม เอาน้ำสะอาดปรุงยากรองละเอียด ใช้สวนทวารหนักเพื่อระบายหรือรักษาโรคลำไส้', icon: 'syringe' },
+
+      // ยาผง 7 วิธี
+      { id: 12, cat: 'powder', catTh: 'ยาผง', title: 'ยากระสายยา (ยาละลาย)', desc: 'ตำตัวยาเป็นผงบดละเอียด นำมาละลายกับน้ำกระสายยาที่กำหนด เช่น น้ำมะนาว น้ำขิง แล้วดื่ม', icon: 'sparkles' },
+      { id: 13, cat: 'powder', catTh: 'ยาผง', title: 'ยาสุม', desc: 'นำตัวยามาเผาหรือคั่วให้ไหม้เกรียมเป็นถ่าน แล้วนำมาตำละเอียด ละลายน้ำกิน ดับพิษไข้', icon: 'flame-kindling' },
+      { id: 14, cat: 'powder', catTh: 'ยาผง', title: 'ยานัตถุ์', desc: 'บดผงละเอียด กวนแห้งใส่กลัก เป่าเข้าทางจมูกและลำคอ แก้อาการหวัดคัดจมูกและไซนัส', icon: 'wind' },
+      { id: 15, cat: 'powder', catTh: 'ยาผง', title: 'ยาทา', desc: 'บดผงผสมกับน้ำกระสายยาหรือน้ำมัน นำมาทาภายนอกบริเวณผิวหนัง', icon: 'brush' },
+      { id: 16, cat: 'powder', catTh: 'ยาผง', title: 'ยาประคบ', desc: 'ผสมสมุนไพรหั่นหยาบ ห่อด้วยผ้าขาวบางมัดจุก นำไปนึ่งให้ร้อนแล้วประคบตามเส้นสาย', icon: 'circle-dot' },
+      { id: 17, cat: 'powder', catTh: 'ยาผง', title: 'ยาพอก', desc: 'ผสมตัวยาบดกับน้ำหรือน้ำซาวข้าว นำมาพอกบริเวณบาดแผล เคล็ดบวม ถอนพิษ', icon: 'layers' },
+      { id: 18, cat: 'powder', catTh: 'ยาผง', title: 'ยานั่งถ่าน', desc: 'โรยผงยาบนถ่านไฟที่คุแดง ให้ควันยาอบรมบริเวณทวารหรือฝีเย็บ มักใช้ในหญิงหลังคลอด', icon: 'box' },
+
+      // ยาเม็ด 6 วิธี
+      { id: 19, cat: 'pill', catTh: 'ยาเม็ด', title: 'ยาเหน็บ', desc: 'บดผง ปั้นเป็นแผ่นหรือแท่งทรงมน ใช้เหน็บทวารหนักหรือช่องคลอด', icon: 'pill' },
+      { id: 20, cat: 'pill', catTh: 'ยาเม็ด', title: 'ยาลูกกลอน', desc: 'บดผงละเอียด ผสมกับน้ำผึ้งหรือน้ำเชื่อม ปั้นเป็นเม็ดกลมพอดีคำ ตากแดดให้แห้งแล้วกลืนกิน', icon: 'circle' },
+      { id: 21, cat: 'pill', catTh: 'ยาเม็ด', title: 'ยาตอกเม็ด (สมัยใหม่)', desc: 'บดผง ผสมสารเกาะยึด นำเข้าเครื่องตอกอัดเป็นเม็ดยา สะดวกต่อการรับประทาน', icon: 'stamp' },
+      { id: 22, cat: 'pill', catTh: 'ยาเม็ด', title: 'ยาเคลือบ (สมัยใหม่)', desc: 'ทำเป็นเม็ดยาแล้วนำไปเคลือบผิวด้วยน้ำตาลหรือฟิล์ม เพื่อกลบรสขมและกลิ่นฉุน', icon: 'shield' },
+      { id: 23, cat: 'pill', catTh: 'ยาเม็ด', title: 'ยาแคปซูล (สมัยใหม่)', desc: 'ผสมผงยาบรรจุลงปลอกแคปซูล โดยตามกฎหมายต้องระบุคำว่า "แผนโบราณ" บนตัวแคปซูล', icon: 'capsule' },
+      { id: 24, cat: 'pill', catTh: 'ยาเม็ด', title: 'ยากวน (ยาขี้ผึ้ง)', desc: 'กวนตัวยากับไขสัตว์หรือขี้ผึ้งให้เข้าเป็นเนื้อเดียวกัน ใช้ปิดแผล รักษาโรคผิวหนัง', icon: 'blend' },
+
+      // ยาดม เป่า อบ สูบ 4 วิธี
+      { id: 25, cat: 'inhalation', catTh: 'ดม เป่า อบ สูบ', title: 'ยาดม', desc: 'ผสมตัวยาสมุนไพรมีกลิ่นหอมระเหย ห่อผ้าบรรจุลงกลัก ใช้สูดดมแก้วิงเวียน หน้ามืด', icon: 'activity' },
+      { id: 26, cat: 'inhalation', catTh: 'ดม เป่า อบ สูบ', title: 'ยาอบ', desc: 'นำตัวยาผสมน้ำต้มในกระโจมหรือตู้อบ ให้ไอความร้อนระเหยรมทั่วผิวกาย ขับเหงื่อ', icon: 'cloud' },
+      { id: 27, cat: 'inhalation', catTh: 'ดม เป่า อบ สูบ', title: 'ยาเป่า', desc: 'ใส่ผงยาในกล้องกระบอก หรือติดไฟใช้ควันเป่าเข้าบาดแผลและฐานฝี', icon: 'send' },
+      { id: 28, cat: 'inhalation', catTh: 'ดม เป่า อบ สูบ', title: 'ยาสูบ', desc: 'ม้วนตัวยาตากแห้งเป็นบุหรี่ หรือยัดลงกล้องยาสูบ จุดสูบเพื่อรักษาโรคริดสีดวงจมูกและคอ', icon: 'cigar' }
+    ];
+
+    let currentMethodCategory = 'all';
+
+    function initMethods() {
+      renderMethodsList(thaiMethods);
+    }
+
+    function renderMethodsList(list) {
+      const container = document.getElementById('methods-container');
+      container.innerHTML = '';
+
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full text-center py-12 text-stone-400">
+            <i data-lucide="inbox" class="w-10 h-10 mx-auto mb-2 opacity-50"></i>
+            <p>ไม่พบวิธีปรุงยาที่ตรงกับคำค้นหา</p>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      list.forEach(m => {
+        const catBadgeColors = {
+          liquid: 'bg-blue-50 text-blue-700 border-blue-200',
+          powder: 'bg-amber-50 text-amber-700 border-amber-200',
+          pill: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+          inhalation: 'bg-purple-50 text-purple-700 border-purple-200'
+        };
+
+        const card = document.createElement('div');
+        card.className = 'bg-white rounded-xl p-5 border border-stone-200 shadow-sm hover:shadow-md transition space-y-3 flex flex-col justify-between';
+        card.innerHTML = `
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs px-2.5 py-0.5 rounded-full border font-semibold ${catBadgeColors[m.cat] || 'bg-stone-100'}">
+                วิธีที่ ${m.id}: ${m.catTh}
+              </span>
+              <span class="text-xs text-stone-400">#${m.id}</span>
+            </div>
+            <h4 class="font-bold text-stone-900 text-base flex items-center gap-1.5">
+              ${m.title}
+            </h4>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              ${m.desc}
+            </p>
+          </div>
+          <div class="pt-2 border-t border-stone-100 flex items-center justify-between text-[11px] text-stone-400">
+            <span>แพทย์แผนไทย เภสัชกรรม บทที่ ๕</span>
+            <button onclick="copyToClipboard('${m.title}: ${m.desc}')" class="hover:text-stone-700 flex items-center gap-1">
+              <i data-lucide="copy" class="w-3 h-3"></i> คัดลอก
+            </button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      lucide.createIcons();
+    }
+
+    function setMethodCategory(cat) {
+      currentMethodCategory = cat;
+      document.querySelectorAll('.method-cat-btn').forEach(btn => {
+        btn.className = 'method-cat-btn px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200';
+      });
+      const activeBtn = document.getElementById(`cat-btn-${cat}`);
+      if (activeBtn) activeBtn.className = 'method-cat-btn px-3 py-1.5 rounded-lg bg-stone-900 text-white font-medium';
+
+      filterMethods();
+    }
+
+    function filterMethods() {
+      const q = document.getElementById('method-search').value.toLowerCase().trim();
+      let filtered = thaiMethods;
+
+      if (currentMethodCategory !== 'all') {
+        filtered = filtered.filter(m => m.cat === currentMethodCategory);
+      }
+
+      if (q) {
+        filtered = filtered.filter(m => 
+          m.title.toLowerCase().includes(q) || 
+          m.desc.toLowerCase().includes(q) || 
+          m.catTh.toLowerCase().includes(q)
+        );
+      }
+
+      renderMethodsList(filtered);
+    }
+
+    /* ====================================================================
+       5. INTERACTIVE PRACTICE QUIZ
+       ==================================================================== */
+    const quizQuestions = [
+      {
+        chang: 0, tamlueng: 0, baht: 1, salueng: 0, fueang: 0, phai: 0,
+        correctGrams: 15,
+        options: ['15.00 กรัม', '3.75 กรัม', '60.00 กรัม', '1.875 กรัม'],
+        explanation: 'ตำแหน่งขวาบนคือ "บาท" เลข ๑ ในช่องขวาบน จึงหนัก ๑ บาท = ๑๕ กรัม'
+      },
+      {
+        chang: 0, tamlueng: 0, baht: 0, salueng: 2, fueang: 0, phai: 0,
+        correctGrams: 7.5,
+        options: ['7.50 กรัม', '15.00 กรัม', '3.75 กรัม', '1.875 กรัม'],
+        explanation: 'ตำแหน่งขวาล่างคือ "สลึง" เลข ๒ ในช่องขวาล่าง จึงหนัก ๒ สลึง (หรือ ๒ × ๓.๗๕ = ๗.๕ กรัม)'
+      },
+      {
+        chang: 0, tamlueng: 1, baht: 2, salueng: 0, fueang: 0, phai: 0,
+        correctGrams: 90,
+        options: ['90.00 กรัม', '60.00 กรัม', '75.00 กรัม', '30.00 กรัม'],
+        explanation: 'ซ้ายบน = ๑ ตำลึง (๖๐ กรัม) + ขวาบน = ๒ บาท (๓๐ กรัม) รวมกันเป็น ๙๐ กรัม'
+      },
+      {
+        chang: 0, tamlueng: 0, baht: 0, salueng: 0, fueang: 1, phai: 0,
+        correctGrams: 1.875,
+        options: ['1.875 กรัม', '0.46875 กรัม', '3.75 กรัม', '15.00 กรัม'],
+        explanation: 'ซ้ายล่างคือ "เฟื้อง" เลข ๑ ในช่องซ้ายล่าง = ๑ เฟื้อง หรือ ๑.๘๗๕ กรัม'
+      },
+      {
+        chang: 1, tamlueng: 0, baht: 0, salueng: 0, fueang: 0, phai: 0,
+        correctGrams: 1200,
+        options: ['1,200 กรัม (1.2 กก.)', '60 กิโลกรัม', '80 กรัม', '600 กรัม'],
+        explanation: 'บนสุดคือ "ชั่ง" หนัก ๘๐ บาท หรือเท่ากับ ๑,๒๐๐ กรัม (๑.๒ กิโลกรัม)'
+      }
+    ];
+
+    let currentQuestionIdx = 0;
+    let quizScore = 0;
+    let answered = false;
+
+    function initQuiz() {
+      currentQuestionIdx = 0;
+      quizScore = 0;
+      document.getElementById('quiz-score').innerText = '0';
+      loadQuizQuestion();
+    }
+
+    function loadQuizQuestion() {
+      answered = false;
+      const q = quizQuestions[currentQuestionIdx];
+      document.getElementById('quiz-q-num').innerText = currentQuestionIdx + 1;
+      
+      // Update Tin Ka visuals
+      document.getElementById('q-val-chang').innerText = q.chang;
+      document.getElementById('q-val-tamlueng').innerText = q.tamlueng;
+      document.getElementById('q-val-baht').innerText = q.baht;
+      document.getElementById('q-val-fueang').innerText = q.fueang;
+      document.getElementById('q-val-salueng').innerText = q.salueng;
+      document.getElementById('q-val-phai').innerText = q.phai;
+
+      // Hide feedback & next
+      const fb = document.getElementById('quiz-feedback');
+      fb.className = 'hidden p-4 rounded-xl text-sm font-medium';
+      document.getElementById('quiz-next-btn').classList.add('hidden');
+
+      // Populate options
+      const optContainer = document.getElementById('quiz-options-container');
+      optContainer.innerHTML = '';
+
+      q.options.forEach((optText, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'p-3.5 rounded-xl border border-stone-300 hover:border-herbal-600 bg-stone-50 hover:bg-white text-stone-800 font-semibold text-sm transition text-left flex items-center justify-between';
+        btn.innerHTML = `<span>${optText}</span> <i data-lucide="circle" class="w-4 h-4 text-stone-300"></i>`;
+        btn.onclick = () => selectQuizAnswer(optText, q, btn);
+        optContainer.appendChild(btn);
+      });
+
+      lucide.createIcons();
+    }
+
+    function selectQuizAnswer(chosenText, q, clickedBtn) {
+      if (answered) return;
+      answered = true;
+
+      const fb = document.getElementById('quiz-feedback');
+      const nextBtn = document.getElementById('quiz-next-btn');
+      const isCorrect = chosenText.includes(q.correctGrams.toString());
+
+      if (isCorrect) {
+        quizScore += 1;
+        document.getElementById('quiz-score').innerText = quizScore;
+        fb.className = 'p-4 rounded-xl text-sm font-medium bg-emerald-50 border border-emerald-300 text-emerald-800 block';
+        fb.innerHTML = `<strong>ถูกต้องมาก! 🎉</strong> ${q.explanation}`;
+        clickedBtn.className = 'p-3.5 rounded-xl border-2 border-emerald-500 bg-emerald-50 text-emerald-900 font-bold text-sm text-left flex items-center justify-between';
+      } else {
+        fb.className = 'p-4 rounded-xl text-sm font-medium bg-rose-50 border border-rose-300 text-rose-800 block';
+        fb.innerHTML = `<strong>ยังไม่ถูกต้อง</strong> คำตอบที่ถูกคือ <strong>${q.options[0]}</strong><br>${q.explanation}`;
+        clickedBtn.className = 'p-3.5 rounded-xl border-2 border-rose-500 bg-rose-50 text-rose-900 font-bold text-sm text-left flex items-center justify-between';
+      }
+
+      nextBtn.classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function nextQuizQuestion() {
+      currentQuestionIdx++;
+      if (currentQuestionIdx < quizQuestions.length) {
+        loadQuizQuestion();
+      } else {
+        // Quiz completed
+        const optContainer = document.getElementById('quiz-options-container');
+        optContainer.innerHTML = '';
+        const fb = document.getElementById('quiz-feedback');
+        fb.className = 'p-6 rounded-2xl bg-amber-50 border border-amber-300 text-center space-y-3 block';
+        fb.innerHTML = `
+          <h3 class="text-xl font-bold text-stone-900 font-thaiTrad">จบแบบทดสอบความรู้!</h3>
+          <p class="text-sm text-stone-700">คุณตอบถูกทั้งหมด <strong>${quizScore}</strong> จาก ${quizQuestions.length} ข้อ</p>
+          <button onclick="initQuiz()" class="px-4 py-2 bg-herbal-700 hover:bg-herbal-800 text-white rounded-lg text-xs font-semibold shadow">ทำแบบทดสอบใหม่อีกครั้ง</button>
+        `;
+        document.getElementById('quiz-next-btn').classList.add('hidden');
+      }
+    }
+  </script>
+</body>
+</html>
